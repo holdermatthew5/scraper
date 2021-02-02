@@ -20,7 +20,10 @@ def get_citations_needed_report(url):
     passages = ''
     for i in range(len(p_tags)):
         if p_tags[i].find('sup', class_='noprint'):
-            passages = f'{passages}\n{p_tags[i]}'
+            if passages == '':
+                passages = f'{p_tags[i]}'
+            else:
+                passages = f'{passages}\n{p_tags[i]}'
     return passages
 
 if __name__ == '__main__':
